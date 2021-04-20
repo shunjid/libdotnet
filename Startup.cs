@@ -1,4 +1,5 @@
 using libdotnet.Data;
+using libdotnet.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,9 @@ namespace libdotnet
             
             // Configure AppDbContext with SQL
             services.AddDbContext<AppDbContext>(options => options.UseSqlite(ConnectionString));
+            
+            // Configure the services
+            services.AddTransient<BooksServices>();
             
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "libdotnet", Version = "v1"}); });
         }

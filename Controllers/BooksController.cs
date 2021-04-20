@@ -14,14 +14,7 @@ namespace libdotnet.Controllers
         {
             _booksServices = booksServices;
         }
-
-        [HttpPost("add-book")]
-        public IActionResult AddBook([FromBody]BookVM book)
-        {
-            _booksServices.AddBook(book);
-            return Ok();
-        }
-
+        
         [HttpGet("get-all-books")]
         public IActionResult GetAllBooks()
         {
@@ -34,6 +27,20 @@ namespace libdotnet.Controllers
         {
             var book = _booksServices.GetBook(id);
             return Ok(book);
+        }
+
+        [HttpPost("add-book")]
+        public IActionResult AddBook([FromBody]BookVM book)
+        {
+            _booksServices.AddBook(book);
+            return Ok();
+        }
+
+        [HttpPut("update-book-by-id/{id}")]
+        public IActionResult UpdateBookById(int id, [FromBody] BookVM book)
+        {
+            var updatedBook = _booksServices.UpdateBookById(id, book);
+            return Ok(updatedBook);
         }
     }
 }

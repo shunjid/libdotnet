@@ -57,5 +57,16 @@ namespace libdotnet.Data.Services
             }
             return _book;
         }
+
+        public void DeleteBookById(int id)
+        {
+            var _book = _context.Books.FirstOrDefault(b => b.Id == id);
+
+            if (_book != null)
+            {
+                _context.Books.Remove(_book);
+                _context.SaveChanges();
+            }
+        }
     }
 }

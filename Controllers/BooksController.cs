@@ -21,5 +21,19 @@ namespace libdotnet.Controllers
             _booksServices.AddBook(book);
             return Ok();
         }
+
+        [HttpGet("get-all-books")]
+        public IActionResult GetAllBooks()
+        {
+            var allBooks = _booksServices.GetAllBooks();
+            return Ok(allBooks);
+        }
+        
+        [HttpGet("get-book-by-id/{id}")]
+        public IActionResult GetBookById(int id)
+        {
+            var book = _booksServices.GetBook(id);
+            return Ok(book);
+        }
     }
 }

@@ -15,6 +15,20 @@ namespace libdotnet.Controllers
             _authorServices = authorServices;
         }
 
+        [HttpGet("get-authors")]
+        public IActionResult GetAuthors()
+        {
+            var authors = _authorServices.GetAuthors();
+            return Ok(authors);
+        }
+        
+        [HttpGet("get-author-by-id/{id:int}")]
+        public IActionResult GetAuthorById(int id)
+        {
+            var author = _authorServices.GetAuthorById(id);
+            return Ok(author);
+        }
+
         [HttpPost("add-author")]
         public IActionResult AddAuthor([FromBody] AuthorVM author)
         {

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using libdotnet.Data.Models;
 using libdotnet.Data.ViewModels;
 
@@ -11,6 +13,10 @@ namespace libdotnet.Data.Services
         {
             _context = context;
         }
+
+        public List<Author> GetAuthors() => _context.Authors.ToList();
+
+        public Author GetAuthorById(int id) => _context.Authors.FirstOrDefault(a => a.Id == id);
 
         public void AddAuthor(AuthorVM author)
         {

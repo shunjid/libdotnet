@@ -9,7 +9,7 @@ using libdotnet.Data;
 namespace libdotnet.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210421043906_InitialCreate")]
+    [Migration("20210421063458_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,9 +37,6 @@ namespace libdotnet.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Author")
-                        .HasColumnType("TEXT");
 
                     b.Property<string>("CoverUrl")
                         .HasColumnType("TEXT");

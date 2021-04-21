@@ -36,9 +36,6 @@ namespace libdotnet.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Author")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("CoverUrl")
                         .HasColumnType("TEXT");
 

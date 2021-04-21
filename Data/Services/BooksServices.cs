@@ -26,7 +26,6 @@ namespace libdotnet.Data.Services
                 Rate = book.IsRead ? book.Rate : null,
                 Genre = book.Genre,
                 CoverUrl = book.CoverUrl,
-                Author = book.Author,
                 DateAdded = DateTime.Now,
                 PublisherId = book.PublisherId
             };
@@ -40,12 +39,12 @@ namespace libdotnet.Data.Services
             // To maintain effect to many relationship
             foreach (var id in book.AuthorIds)
             {
-                var bookAuthor = new BookAuthor 
+                var _bookAuthor = new BookAuthor 
                 {
                     BookId = _book.Id,
                     AuthorId = id
                 };
-                _context.Add(bookAuthor);
+                _context.Add(_bookAuthor);
             }
 
             _context.SaveChanges();
@@ -68,8 +67,7 @@ namespace libdotnet.Data.Services
                 _book.Rate = book.IsRead ? book.Rate : null;
                 _book.Genre = book.Genre;
                 _book.CoverUrl = book.CoverUrl;
-                _book.Author = book.Author;
-
+               
                 _context.SaveChanges();
             }
             return _book;

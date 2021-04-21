@@ -45,7 +45,6 @@ namespace libdotnet.Migrations
                     DateRead = table.Column<DateTime>(type: "TEXT", nullable: true),
                     Rate = table.Column<int>(type: "INTEGER", nullable: true),
                     Genre = table.Column<string>(type: "TEXT", nullable: true),
-                    Author = table.Column<string>(type: "TEXT", nullable: true),
                     CoverUrl = table.Column<string>(type: "TEXT", nullable: true),
                     DateAdded = table.Column<DateTime>(type: "TEXT", nullable: false),
                     PublisherId = table.Column<int>(type: "INTEGER", nullable: false)

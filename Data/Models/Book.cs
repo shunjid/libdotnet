@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace libdotnet.Data.Models
 {
@@ -28,5 +29,7 @@ namespace libdotnet.Data.Models
         public int PublisherId { get; set; }
 
         public Publisher Publisher { get; set; }
+
+        public List<BookAuthor> BookAuthors { get; set; }
     }
 }

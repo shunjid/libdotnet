@@ -15,6 +15,20 @@ namespace libdotnet.Controllers
             _publisherServices = publisherServices;
         }
 
+        [HttpGet("get-publishers")]
+        public IActionResult GetPublishers()
+        {
+            var publishers = _publisherServices.GetPublishers();
+            return Ok(publishers);
+        }
+        
+        [HttpGet("get-publisher-by-id/{id:int}")]
+        public IActionResult GetPublisherById(int id)
+        {
+            var publisher = _publisherServices.GetPublisher(id);
+            return Ok(publisher);
+        }
+
         [HttpPost("add-publisher")]
         public IActionResult AddPublisher(PublisherVM publisherVm)
         {

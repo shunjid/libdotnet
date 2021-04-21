@@ -31,6 +31,8 @@ namespace libdotnet
             
             // Configure the services
             services.AddTransient<BooksServices>();
+            services.AddTransient<AuthorServices>();
+            services.AddTransient<PublisherServices>();
             
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "libdotnet", Version = "v1"}); });
         }

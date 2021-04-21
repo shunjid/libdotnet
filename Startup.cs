@@ -54,9 +54,6 @@ namespace libdotnet
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            
-            // Seed mock data to the database
-            AppDbInitializer.Seed(app);
         }
     }
 }

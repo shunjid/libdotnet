@@ -19,7 +19,7 @@ namespace libdotnet.Data.Services
                 Name = author.FullName
             };
 
-            _context.Add(_author);
+            _context.Authors.Add(_author);
             _context.SaveChanges();
         }
     }

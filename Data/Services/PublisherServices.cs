@@ -19,7 +19,7 @@ namespace libdotnet.Data.Services
                 Name = publisherVm.Name
             };
 
-            _context.Add(publisher);
+            _context.Publishers.Add(publisher);
             _context.SaveChanges();
         }
     }

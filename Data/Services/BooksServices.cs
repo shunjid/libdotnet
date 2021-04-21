@@ -27,10 +27,27 @@ namespace libdotnet.Data.Services
                 Genre = book.Genre,
                 CoverUrl = book.CoverUrl,
                 Author = book.Author,
-                DateAdded = DateTime.Now
+                DateAdded = DateTime.Now,
+                PublisherId = book.PublisherId
             };
 
             _context.Books.Add(_book);
+            _context.SaveChanges();
+            
+            // As one book can have multiple authors
+            // So after adding a new book
+            // We need to add entries in BookAuthor table
+            // To maintain effect to many relationship
+            foreach (var id in book.AuthorIds)
+            {
+                var bookAuthor = new BookAuthor 
+                {
+                    BookId = _book.Id,
+                    AuthorId = id
+                };
+                _context.Add(bookAuthor);
+            }
+
             _context.SaveChanges();
         }
 
